@@ -1,8 +1,58 @@
 # Muse Video Prompt Skill
 
-**Muse 内置视频（Muse Video）提示词实战 Skill：从提示词到成片的完整闭环**
+**A battle-tested workflow skill for Muse's built-in video generation (Muse Video): from prompt to final cut.**
 
-[English](#english) | [简体中文](#简体中文)
+[English](#english) | [简体中文](#简体中文-1)
+
+---
+
+## English
+
+The hardest part of AI short video isn't hitting "generate" — it's **writing prompts that land, stitching long videos coherently, and keeping characters consistent**.
+This skill is a production-hardened workflow for Muse's built-in video generation:
+
+- **Six-part prompt template**: duration & aspect / character / setting / timed beats / camera language / audio / dialogue / restrictions — plus POV lifestyle, talking-head, and multi-segment variants
+- **Multi-segment stitching**: ~10s per clip is a hard limit? Split by beats, chain with snapshot IDs for continuity, stitch losslessly with ffmpeg into 30s+
+- **Frame-extraction verification**: auto-extract frames after every generation; what matched the prompt and what drifted, in writing
+- **Honesty-first**: face-lock is weak on built-in video, reference likeness isn't guaranteed — limits stated upfront, never oversold
+- **Growing case library**: every experiment becomes a case card (prompt points / result / drift / lesson)
+
+### How it differs from `muse-video-skill`
+
+[LuoJiangYong/muse-video-skill](https://github.com/LuoJiangYong/muse-video-skill) (MIT) is an excellent **pre-production engine** (script / storyboard / art direction → compiled downstream model calls); its engineering ideas (thin center + on-demand loading + deterministic scripts) are this skill's architectural blueprint.
+This skill is positioned differently: **a hands-on closed loop for built-in video** — write the prompt, generate, stitch, verify, all in one place, no downstream tools required.
+
+### Layout
+
+```
+muse-video-prompt-skill/
+├── SKILL.md                  # Entry: workflow + operating rules (Agent Skills format)
+├── CONSTITUTION.md           # Design constitution: honesty / final cut / short loop / compound / lean
+├── README.md
+├── LICENSE                   # MIT
+├── references/               # On-demand domain knowledge
+│   ├── prompt-template.md    # Six-part prompt template + three variants
+│   ├── model-notes.md        # Built-in Muse Video capability limits (measured)
+│   ├── consistency.md        # Character-consistency tactics
+│   ├── dialogue.md           # Dialogue conventions (Taiwan-accented Mandarin default)
+│   ├── stitch-workflow.md    # Segment → stitch → verify
+│   └── cases/                # Case library (INDEX + dated case cards)
+└── bin/
+    └── extract_frames.py     # Frame-extraction self-check script
+```
+
+### Install
+
+```bash
+git clone https://github.com/masonmosen/muse-video-prompt-skill.git
+# Drop into your agent's skills directory, e.g.:
+#   Claude Code → ~/.claude/skills/muse-video-prompt-skill/
+```
+
+### Fits / doesn't fit
+
+- ✅ Video prompt experiments, short video generation, multi-segment long videos, prompt craft
+- ❌ Projects needing strong face-lock → use Seedance / third-party video models (this skill will tell you so)
 
 ---
 
@@ -22,51 +72,10 @@
 [LuoJiangYong/muse-video-skill](https://github.com/LuoJiangYong/muse-video-skill)（MIT）是优秀的**前期策划引擎**（剧本/分镜/美术 → 编译成下游模型指令），它的工程化思想（thin center + 按需加载 + 确定性脚本）是本 skill 的架构蓝本。
 本 skill 定位不同：**内置视频的实战闭环**——写完提示词直接生成、拼接、验证，全流程在一套里跑完，不依赖下游工具。
 
-### 目录结构
-
-```
-muse-video-prompt-skill/
-├── SKILL.md                  # 入口：工作流 + 操作规则（通用 Agent Skills 格式）
-├── CONSTITUTION.md           # 设计宪法：诚实线 / 用户定稿 / 短闭环 / 沉淀 / 精益
-├── README.md
-├── LICENSE                   # MIT
-├── references/               # 按需加载的领域知识
-│   ├── prompt-template.md    # 六段式提示词模板 + 三个变体
-│   ├── model-notes.md        # 内置 Muse Video 能力边界（实测）
-│   ├── consistency.md        # 人物一致性实战策略
-│   ├── dialogue.md           # 对白规范（默认台湾腔国语）
-│   ├── stitch-workflow.md    # 分段生成 → 拼接 → 验证
-│   └── cases/                # 案例库（INDEX + 按日期归档的案例卡）
-└── bin/
-    └── extract_frames.py     # 抽帧自查脚本
-```
-
-### 安装
-
-```bash
-git clone https://github.com/masonmosen/muse-video-prompt-skill.git
-# 放入所用 Agent 的 skills 目录，例如：
-#   Claude Code → ~/.claude/skills/muse-video-prompt-skill/
-```
-
 ### 适用与不适用
 
 - ✅ 视频提示词实验、短视频生成、多段拼长片、提示词写法打磨
 - ❌ 需要强锁脸的项目 → 走 Seedance / 第三方视频模型（本 skill 会明确告诉你）
-
----
-
-## English
-
-A battle-tested workflow skill for Muse's built-in video generation (Muse Video): prompt writing with a six-part template, multi-segment generation with snapshot chaining, lossless stitching, and frame-extraction verification — a complete loop from prompt to final cut.
-
-- **Six-part prompt template** (+ POV / talking-head / multi-segment variants)
-- **Multi-segment stitching** for videos beyond the ~10s single-clip limit
-- **Frame-extraction verification** after every generation
-- **Honesty-first**: face-lock is weak on built-in video — stated upfront, never oversold
-- **Growing case library**: every experiment becomes a case card
-
-Architecture inspired by [LuoJiangYong/muse-video-skill](https://github.com/LuoJiangYong/muse-video-skill) (MIT); all content here is original, battle-tested against real generations.
 
 ## License
 

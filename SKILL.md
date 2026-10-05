@@ -1,6 +1,6 @@
 ---
 name: "muse_video_prompt_skill"
-description: "Muse 内置视频（Muse Video）提示词实战 skill：六段式提示词模板 → 生成 → 多段拼接 → 抽帧验证的完整闭环。做视频提示词实验、生成短视频、拼长片时用。"
+description: "Prompt engineering workflow skill for Muse built-in video generation (Muse Video): six-part prompt templates → generation → multi-segment stitching → frame verification. Muse 内置视频提示词实战：写提示词 → 生成 → 拼长片 → 抽帧验证的完整闭环。"
 ---
 
 # Muse Video Studio — 内置视频实战工作流
