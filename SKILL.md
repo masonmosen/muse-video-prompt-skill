@@ -1,5 +1,5 @@
 ---
-name: "muse_video_prompt_skill"
+name: "muse-video-prompt-skill"
 description: "Prompt engineering workflow skill for Muse built-in video generation (Muse Video): six-part prompt templates → generation → multi-segment stitching → frame verification. Muse 内置视频提示词实战：写提示词 → 生成 → 拼长片 → 抽帧验证的完整闭环。"
 ---
 
