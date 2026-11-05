@@ -2,6 +2,23 @@
 
 **A battle-tested workflow skill for Muse's built-in video generation (Muse Video): from prompt to final cut.**
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE) [![GitHub stars](https://img.shields.io/github/stars/masonmosen/muse-video-prompt-skill.svg)](https://github.com/masonmosen/muse-video-prompt-skill/stargazers)
+
+## Demo
+
+> **Text-only demo for now.** Muse built-in video generation is currently blocked upstream by region (403 `video_not_available`, still blocked as of 2026-11-05; checked daily at 09:06). No new demo clip can be generated until it is unblocked, so this section quotes the case library instead of showing a clip.
+>
+> - **Hangzhou National Day trip, 30.04s, 9:16** — full-chain case: prompt → multi-segment stitching → frame verification (see `references/cases/`).
+> - **Mahjong, 30s** — negative case, kept as a limit: snapshot does not lock faces; the three segments used different people.
+
+## Install
+
+```bash
+git clone https://github.com/masonmosen/muse-video-prompt-skill.git
+# Drop into your agent's skills directory, e.g.:
+#   Claude Code → ~/.claude/skills/muse-video-prompt-skill/
+```
+
 [English](#english) | [简体中文](#简体中文-1)
 
 ---
@@ -80,3 +97,14 @@ git clone https://github.com/masonmosen/muse-video-prompt-skill.git
 ## License
 
 MIT © 2026 Mason Mosen
+
+---
+
+## More from MOSEN
+
+- [ip-picture-workshop](https://github.com/masonmosen/ip-picture-workshop) — Photo + text → multi-page illustrated IP carousel.
+- [mason-opc-motion-video](https://github.com/masonmosen/mason-opc-motion-video) — Talking-head video + script → editable motion-graphics video.
+- [mosen-ad-studio](https://github.com/masonmosen/mosen-ad-studio) — Brand ads & product promos made entirely as code.
+- [remake-depth-breakdown](https://github.com/masonmosen/remake-depth-breakdown) — Reference video → depth video + Seedance-ready prompts.
+- [cueshot-starter-skills](https://github.com/masonmosen/cueshot-starter-skills) — Free starter skills for AI video shot planning & review.
+- [reference-video-blueprint](https://github.com/masonmosen/reference-video-blueprint) — Authorized reference video → original Prompt Contract.
